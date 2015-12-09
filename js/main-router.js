@@ -12,14 +12,25 @@
 	App.Router = Backbone.Router.extend({
 		routes: {
 			'':'index',
-			'show/:id': 'show'
+			'show/:id': 'show',
+			'download/*random' : 'download',
+			'search/:query' : 'search',
+			'*default' : 'default'
 		},
 		index: function(){
-			$('#container').append("Index route has been called");
-
+			console.log("Index route has been called");
 		},
 		show: function(id){
-			$('#container').append("Show route has been called with id: " + id);
+			console.log("Show route has been called with id: " + id);
+		},
+		download: function(random) {
+			console.log("Download route has been called with random: " + random);
+		},
+		search: function(query) {
+			console.log("Searching for: " + query);
+		},
+		default: function(def) {
+			console.log("No route for: " + def);
 		}
 	});
 

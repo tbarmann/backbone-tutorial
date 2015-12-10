@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+
+<style type="text/css">
+
+body {
+  font-family: arial;
+
+}
+
+.name, .title {
+  font-size:18px;
+
+}
+
+.bio {
+  font-size:12px;
+
+}
+
+.icon img {
+    width:80px;
+    margin-right: 10px;
+    float:left;
+  } 
+
+  .large img {
+    width:600px;
+    margin-right: 10px;
+    float:left;
+  } 
+
+#main-container li {
+  border-top:1px solid #EEEEEE;
+  padding: 5px;
+  min-height:80px;
+}
+
+#main-container ul {
+  list-style-type: none;
+
+}
+
+input {
+  display:block;
+  margin-bottom:10px;
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+
+<div id="main-container"></div>
+
+
+
+<div id="people-list"></div>
+<script id="personTemplate" type="text/template">
+  <div class="icon"><img src="<%= imagePath %>" /><span class="name"><%= name %></span> - <span class="title"><%= title %></span>
+    <div class="bio"><%= bio %></div>
+
+</script>
+
+<script id="personDetailTemplate" type="text/template">
+  <div class="large"><img src="<%= imagePath %>" /><span class="name"><%= name %></span> - <span class="title"><%= title %></span>
+    <div class="bio"><%= bio %></div>
+
+</script>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/underscore-min.js"></script>
+  <script src="js/backbone-min.js"></script>
+  <script src="js/main5.js"></script>
+</body>
+</html>

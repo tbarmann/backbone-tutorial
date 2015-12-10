@@ -37,8 +37,32 @@ App.Views.EditForm = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
-	savePerson: function() {},
-	cancel: function() {}
+	savePerson: function(e) {
+		e.preventDefault();
+		// get values from form
+		// save to model
+		
+		var newValues = this.formToObj();
+		console.log(newValues);
+		this.model.set(newValues);
+
+
+	},
+	cancel: function() {},
+
+	formToObj: function(e) {
+	var formData = $('#editPerson').serializeArray();
+	// formData is array of objects, each with two properties:
+	// [{ name: "a", value: "1"},{name: "b",value: "2"}]
+	// needs to be single object:
+	// {"a":1,"b":2}
+	var obj = {};
+	$.each(formData, function(){
+		obj[this.name] = this.value;
+	});
+	return obj;
+	}
+
 
 });
 

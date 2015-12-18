@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+
+<style type="text/css">
+
+body {
+  font-family: arial;
+
+}
+
+.name, .title {
+  font-size:12px;
+
+}
+
+.headline-name, .headline-title {
+  font-size:18px;
+
+}
+
+.bio {
+  font-size:12px;
+
+}
+
+img.icon {
+    width:20px;
+    margin-right: 10px;
+    float:left;
+  } 
+
+  .large img {
+    width:100%
+    margin-right: 10px;
+  } 
+
+#sidebar li {
+  border-top:1px solid #EEEEEE;
+  padding: 5px;
+  width:90%;
+  cursor:pointer;
+}
+
+#sidebar {
+  width:35%;
+  float:left;
+  border-right:1px solid #EEEEEE;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  margin-top:5px;
+}
+
+#main-region, #edit-form {
+  width:60%;
+  float:right;
+  padding-left:20px;
+  padding-right:20px;
+  /* position: fixed; */ 
+  left:35%;
+  margin-bottom:20px;
+
+
+}
+
+.actions-sprite {
+  background-image:url('images/action-icons.jpg');
+  background-repeat: no-repeat;
+  display:inline-block;
+  vertical-align: top;
+   zoom:0.4;
+    -moz-transform:scale(0.5);
+    -moz-transform-origin: 0 0;
+  margin-left:10px;
+
+
+}
+
+.trash {
+  height:50px;
+  width:50px;
+  background-position: -50px -50px;
+
+}
+
+.edit {
+  height:50px;
+  width:50px;
+  background-position: -100px -50px;
+
+}
+
+input[type="text"] {
+  display:inline-block;
+  margin-bottom:10px;
+  width:300px;
+}
+
+input[type="submit"] {
+  display:inline-block;
+  margin-right:10px;
+ 
+}
+
+
+form label {
+  font-size:11px;
+  display:inline-block;
+}
+
+</style>
+
+</head>
+<body>
+
+
+
+<div id="app-container">
+  <div id="sidebar"></div>
+  <div id="edit-form"></div>
+  <div id="main-region">&nbsp;</div>
+  
+</div>
+
+
+<script id="person-template" type="text/template">
+  <img class="icon" src="<%= imagePath %>" /><span class="name"><%= name %></span> - <span class="title"><%= title %></span><span class="actions-sprite trash">&nbsp;</span><span class="actions-sprite edit">&nbsp;</span>
+
+
+</script>
+
+<script id="person-detail-template" type="text/template">
+  <div class="headline-name"><%= name %> - <span class="headline-title"><%= title %></span></div> 
+  <div class="large"><img src="<%= imagePath %>" />
+    <div class="bio"><%= bio %></div>
+
+</script>
+
+<script id="edit-person-template" type="text/template">
+  <form id="editPerson" method="POST" action="">
+      <label for="name">Name: </label>
+      <input id ="name" name="name" value="<%= name %>" type="text" placeholder="Name"><br/>
+      <label for="title">Title: </label>
+      <input id ="title" name="title" type="text" value="<%= title %>" placeholder="Title"><br/>
+      <label for="imagePath">Image url: </label>
+      <input id ="imgPath" name="imagePath" type="text" value="<%= imagePath %>" placeholder="Image URL"><br/>
+      <textarea id ="bio" name="bio" rows="6" cols="90" placeholder="bio">
+        <%= bio %>
+      </textarea><br/>
+      <input type="submit" class="save" name="save" value="Save" /><input type="submit" class="cancel" name="cancel" value="Cancel" />
+  </form>
+</script>
+
+<script src="./js/jquery.js"></script>
+ <script src="./js/json2.js"></script>
+ <script src="./js/underscore.js"></script>
+ <script src="./js/backbone.js"></script>
+ <script src="./js/backbone.marionette.js"></script>
+
+  <script src="./js/main7.js"></script>
+</body>
+</html>
